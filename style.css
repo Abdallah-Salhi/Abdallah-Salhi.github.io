@@ -93,6 +93,106 @@ p, li, h1, h2, h3, code, .tagline {
   transform: scaleX(1);
 }
 
+/* --- Side nav --- */
+
+.side-nav {
+  position: fixed;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 50;
+}
+
+.side-nav-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 2.5rem;
+}
+
+.side-nav-pill {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  max-width: 2.5rem;
+  border-radius: 999px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  text-decoration: none;
+  overflow: hidden;
+  transition: max-width 0.3s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.side-nav-pill:hover {
+  color: var(--accent);
+  max-width: 9rem;
+  box-shadow: 0 8px 16px var(--shadow);
+}
+
+.side-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.side-nav-label {
+  white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-right: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.1s;
+}
+
+.side-nav-pill:hover .side-nav-label {
+  opacity: 1;
+}
+
+.side-nav-divider {
+  width: 1px;
+  height: 3rem;
+  background: var(--border);
+}
+
+.back-to-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-to-top:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.back-to-top-text {
+  writing-mode: vertical-rl;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+@media (max-width: 60rem) {
+  .side-nav {
+    display: none;
+  }
+}
+
 /* --- Header --- */
 
 .site-header {
@@ -224,12 +324,50 @@ section h2 {
   padding: 0 1.5rem;
 }
 
+.skills,
 .projects,
-.experience {
+.journey {
   max-width: 72rem;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   scroll-margin-top: 5rem;
+}
+
+/* --- Skills --- */
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 6.5rem;
+  padding: 1.25rem 0.75rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 24px var(--shadow);
+}
+
+.skill-item i {
+  font-size: 2.25rem;
+}
+
+.skill-item span {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  text-align: center;
 }
 
 /* --- Projects --- */
@@ -293,6 +431,215 @@ section h2 {
   transform: translateX(4px);
 }
 
+/* --- Journey tabs --- */
+
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-alt);
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tab-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px var(--shadow);
+}
+
+.tab-btn.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-alt);
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
+.journey-columns {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.journey-columns::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.journey-column-offset {
+  margin-top: 3.5rem;
+}
+
+/* Timeline dots: each card connects back to the central spine. The first
+   column's dots sit on its right edge, the second column's on its left,
+   so both point in toward the line running down the middle. */
+.journey-column .experience-item {
+  position: relative;
+}
+
+.journey-column .experience-item::before {
+  content: "";
+  position: absolute;
+  top: 1.9rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  z-index: 1;
+}
+
+.journey-column:first-child .experience-item::before {
+  right: -1.4rem;
+}
+
+.journey-column:nth-child(2) .experience-item::before {
+  left: -1.4rem;
+}
+
+@media (max-width: 55rem) {
+  .journey-columns {
+    grid-template-columns: 1fr;
+  }
+  .journey-columns::before {
+    display: none;
+  }
+  .journey-column .experience-item::before {
+    display: none;
+  }
+  .journey-column-offset {
+    margin-top: 0;
+  }
+}
+
+/* Scroll-reveal: cards start hidden/offset and script.js adds .in-view via
+   an IntersectionObserver as each one scrolls into the viewport. */
+.journey .experience-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease, box-shadow 0.2s ease;
+}
+
+.journey .experience-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.journey .experience-item.in-view:hover {
+  transform: translateY(0) scale(1.01);
+}
+
+/* Same fade/slide-up reveal, extended to the hero photo and text, the
+   skill cards, and the project cards. Each ".in-view:hover" rule below
+   just restores that element's normal hover transform, which would
+   otherwise get overridden by the higher-specificity ".in-view" reveal
+   rule while hovering after the reveal has played. */
+.headshot,
+.hero-text,
+.skill-item,
+.project-card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease, box-shadow 0.2s ease;
+}
+
+.headshot.in-view,
+.hero-text.in-view,
+.skill-item.in-view,
+.project-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.headshot.in-view:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.skill-item.in-view:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.project-card.in-view:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+section h2 {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+section h2.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The hero tagline and the Contact intro paragraph reveal a beat after
+   their section's header, via the extra transition-delay below. They're
+   observed independently of their parent blocks, so they fade in on their
+   own timing even though .hero-text also has its own reveal. */
+.tagline,
+.contact-intro > p:first-of-type {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease 0.25s, transform 0.9s ease 0.25s;
+}
+
+.tagline.in-view,
+.contact-intro > p:first-of-type.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Phone, email, and location lines reveal one after another below the
+   intro paragraph, each a bit further delayed than the last. */
+.contact-intro > p:nth-of-type(2),
+.contact-intro > p:nth-of-type(3),
+.contact-intro > p:nth-of-type(4) {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.contact-intro > p:nth-of-type(2) {
+  transition-delay: 0.4s;
+}
+
+.contact-intro > p:nth-of-type(3) {
+  transition-delay: 0.55s;
+}
+
+.contact-intro > p:nth-of-type(4) {
+  transition-delay: 0.7s;
+}
+
+.contact-intro > p:nth-of-type(2).in-view,
+.contact-intro > p:nth-of-type(3).in-view,
+.contact-intro > p:nth-of-type(4).in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* --- Experience --- */
 
 .experience-item {
@@ -331,14 +678,7 @@ section h2 {
   padding-left: 1.2rem;
 }
 
-/* --- About --- */
-
-.about-detail {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  scroll-margin-top: 5rem;
-}
+/* --- About tab --- */
 
 .about-photo-grid {
   display: grid;
@@ -379,6 +719,96 @@ section h2 {
 
 .contact-section p {
   font-size: 1.05rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.contact-intro p {
+  color: var(--text-soft);
+}
+
+.contact-intro > p:first-of-type {
+  max-width: 38ch;
+}
+
+@media (max-width: 55rem) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  background: var(--accent-soft);
+  background: color-mix(in srgb, var(--accent-soft) 25%, var(--bg-alt));
+  border: 1px solid var(--accent-soft);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 16px 32px var(--shadow);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-row label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.form-row input,
+.form-row textarea {
+  font: inherit;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--bg-alt);
+  color: var(--text);
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(181, 98, 47, 0.15);
+}
+
+.submit-btn {
+  align-self: flex-start;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg-alt);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.submit-btn:hover {
+  background: var(--text);
+  border-color: var(--text);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .contact-section a {
