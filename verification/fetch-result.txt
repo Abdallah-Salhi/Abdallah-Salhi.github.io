@@ -1,0 +1,47 @@
+=== curl -sI https://abdallah-salhi.github.io/ ===
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+last-modified: Wed, 23 Sep 2026 04:47:11 GMT
+access-control-allow-origin: *
+strict-transport-security: max-age=31556952
+etag: W/"6ab359cf-3cb5"
+expires: Wed, 23 Sep 2026 05:14:07 GMT
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-request-id: 7F80:2D42D7:A85731:B48926:6AB35DC6
+x-github-edge-region: iad
+accept-ranges: bytes
+date: Wed, 23 Sep 2026 05:04:13 GMT
+via: 1.1 varnish
+age: 6
+x-served-by: cache-den-kden1300070-DEN
+x-cache: HIT
+x-cache-hits: 1
+x-timer: S1790139853.126532,VS0,VE1
+vary: Accept-Encoding
+x-fastly-request-id: 4b71c06035848afba2519f553e5865b00b357ed1
+x-content-encoding-over-network: gzip
+
+
+=== First 20 lines of curl -s https://abdallah-salhi.github.io/ ===
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abdallah Salhi</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <aside class="side-nav">
+    <a href="#hero" class="back-to-top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="back-to-top-text">Back to top</span>
+    </a>

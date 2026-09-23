@@ -14,7 +14,14 @@ Delete these instructions when you are done, or leave them. It does not matter.
 What you wanted at the start, and what is actually live now.
 Name one thing you dropped or added along the way, and why.
 
-*Your answer here.*
+I set out to build a website portfolio that would showcase myself to hiring managers and
+recruiters in the industry in the pursuit of finding a career opportunity. Initially the
+portfolio was supposed to show a lot of myself including interests, hobbies, and who I am,
+but I changed my mind halfway and decided to showcase only the professional side and
+expertise in the tech world. So right now the portfolio is live and it showcases things like
+skills, projects, and experiences like a more visual resume. Along the way I added many
+features such as visuals and animations to make the website more interactive and easier to
+see and enjoy. The hope is for hiring managers to be impressed and remember me.
 
 ---
 
@@ -28,7 +35,12 @@ Say which you picked, what the alternative was, and what you gave up by not taki
 
 "There was no alternative" is not an answer. Find the fork.
 
-*Your answer here.*
+A good fork in the road I faced was the setup for email/contact method. I initially just
+wanted to put my email and phone number and suggest contact, but I decided to implement a
+Formspree.io form to have messages sent directly from the website. I could have just left it
+as mailto, which is the method I originally had, and while this method has pros like opening
+the user's default mailing app, I thought being able to fill out a form directly was more
+convenient and shows initiative and expertise on my end.
 
 ---
 
@@ -42,7 +54,10 @@ If it genuinely never happened, say so plainly, and then say what you would have
 check in order to notice. Being honest here costs you far less than a story you cannot
 defend when you record your video.
 
-*Your answer here.*
+I asked Claude to implement an animated rainbow smoke effect that followed the cursor.
+It ran laggy in practice once I actually tried moving the mouse around the live page, so I
+overruled it and told Claude to revert. It reverted cleanly back to the trailing-dot cursor
+I had before. Quick fix, and Claude handled the revert well.
 
 ---
 
@@ -55,7 +70,10 @@ A check that could not have failed is not a check.
 
 Link to your `verification/` folder.
 
-*Your answer here.*
+It was checked via `curl -I` and `curl` against the live URL. It returned the 200 OK status,
+meaning it was up and running. A visual check upon going to the URL confirmed everything was
+working. If a non-200 status was returned, I would know it failed. See `verification/` for
+the screenshot, the fetch result, and the note.
 
 ---
 
@@ -66,4 +84,6 @@ fully understand.
 
 What would you do next, and how would you find out?
 
-*Your answer here.*
+The projects section is not entirely finished. While it is sufficient to present, I would
+like a more interactive view of the projects. My next task will be to find a way to
+visualize the projects and maybe add an interactive feature or two.
